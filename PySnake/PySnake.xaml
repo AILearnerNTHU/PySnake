@@ -6,13 +6,47 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
            <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <MenuItem Header="Game">
                 <MenuItem Header="New Game" Click="MenuItem_Click"/>
                 <MenuItem Header="Start"/>
             </MenuItem>
            </Menu>
-        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Width:" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtWidth" Grid.Column="1" VerticalContentAlignment="Center" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="  High:" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtHigh" Grid.Column="1" VerticalContentAlignment="Center" />
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="15"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnOK" Grid.Column="1" Content="OK"/>
+                <Button x:Name="btnInput" Grid.Column="3" Content="Input"/>
+            </Grid>
+        </Grid>
        </Grid>
 </Window> 
