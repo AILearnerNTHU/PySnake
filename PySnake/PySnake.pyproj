@@ -24,9 +24,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameSetting.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PySnake.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GameSetting.xaml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="PySnake.xaml">
       <SubType>Designer</SubType>
     </Content>

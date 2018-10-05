@@ -1,0 +1,47 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GameSetting" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    <TabControl>
+        <TabItem Header="Standard">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Width:" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtWidth" Grid.Column="1" VerticalContentAlignment="Center" TextChanged="txtWidth_TextChanged"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="  High:" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtHigh" Grid.Column="1" VerticalContentAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnOK" Grid.Column="1" Content="OK" Click="btnOK_Click" />
+                </Grid>
+                <Button Content="Button" HorizontalAlignment="Left" Height="100" Margin="363,19.6,-150.8,0" Grid.Row="2" Grid.RowSpan="4" VerticalAlignment="Top" Width="75"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Customize">
+            
+        </TabItem>
+    </TabControl>
+</Window>
