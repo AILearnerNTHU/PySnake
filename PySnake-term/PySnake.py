@@ -8,21 +8,32 @@ Created on Fri Oct  5 17:39:38 2018
 
 from pynput import keyboard
 
-import numpy as np
-import PySnakeCore 
-import GameMode 
+from PySnakeGame import Map  , Snake , SnakeDirection ,GamePad
+#import GameMode 
 import GameScreen as gs
 
 class PySnakeGUI:
     
     
     #Select mode of game
-    mode = input("Which mode would you prefer?\n\ta)Classic\n\tb)Customize\nInput a or b:\t")
-    if str(mode) == "a" : 
-        GameMode.Classic_Mode()
-    else :
-        GameMode.Customize_Mode()
+#    mode = input("Which mode would you prefer?\n\ta)Classic\n\tb)Customize\nInput a or b:\t")
+#    if str(mode) == "a" : 
+#        GameMode.Classic_Mode()
+#    else :
+#        GameMode.Customize_Mode()
           
+    h = input("Height:\t")
+    w = input("Width:\t")
+    h = int(h)
+    w = int(w)
+    m = Map.Map(h,w)
+    for i in range(0,int(h)):
+        for j in range(0,int(w)):
+            if i == 0 or j == 0 or i ==h-1 or j ==w-1:
+                m.World[i][j].FileType = Map.MapEnum.Wall
+    gp = GamePad(m,h,w,[int(h/2),int((w*2)/3)],3,SnakeDirection.Direction.Left)
+    global gamescreen
+    gamescreen = gs.GameScreen(gp)
     
     
     #Keyboard Controller

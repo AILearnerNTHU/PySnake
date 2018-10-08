@@ -22,9 +22,12 @@ class MapObject(object):
 class Map():
     def __init__(self,Height,Width):
         global World 
-        World = [[MapObject.FileType]*Width for i in range(Height)]
+        World = [[MapObject()]* int(Width) for i in range(int(Height))]
         
-    
+    @property
+    def World(self):
+        global World
+        return World
         
     
     

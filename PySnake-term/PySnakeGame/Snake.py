@@ -7,11 +7,12 @@ Created on Sat Oct  6 18:39:20 2018
 
 
 import queue
-
+#import SnakeDirection
+from . import SnakeDirection
 class Snake(object):
     
     def __init__(self,Tail,Direction):
-        self.q_snake = queue.deque(maxsuze = 0)
+        self.q_snake = queue.deque()
         self.q_snake.append([Tail[0],Tail[1]])
         self.direction = Direction
     """
@@ -37,11 +38,24 @@ class Snake(object):
     @Direction.setter
     def Direction(self, value):
         self.direction = value
+       
+    def NextHead(self):
+        h = self.Head
+        if self.Direction == SnakeDirection.Direction.Up:
+            head = [h[0]-1,h[1]]
+        elif self.Direction == SnakeDirection.Direction.Down:
+            head = [h[0]+1,h[1]]
+        elif self.Direction == SnakeDirection.Direction.Right:
+            head = [h[0],h[1]+1]
+        elif self.Direction == SnakeDirection.Direction.Left:
+            head = [h[0],h[1]-1]
+        else:
+            print("Error!! No such direction")
+        return head;
         
+    
     def HeadMove(self):
-        head = [self.Head()[0],self.Head()[1]]
-        self.q_snake.append(head)
-        
+        self.q_snake.append(self.NextHead())
         
     def TailMove(self):
         self.q_snake.popleft()
