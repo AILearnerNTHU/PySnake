@@ -21,8 +21,8 @@ class MapObject(object):
 
 class Map():
     def __init__(self,Height,Width):
-        global Map 
-        Map = [[MapObject.FileType]*Width for i in range(Height)]
+        global World 
+        World = [[MapObject.FileType]*Width for i in range(Height)]
         
     
         

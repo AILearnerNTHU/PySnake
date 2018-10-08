@@ -5,10 +5,9 @@ Created on Fri Oct  5 17:40:33 2018
 @author: Computer-User
 """
 
-import queue
-import numpy as np
 import SnakeDirection
 import Map
+import Snake
 
 
 class PySnakeCore:
@@ -17,62 +16,58 @@ class PySnakeCore:
         
         
     class GamePad:
-         global game_pad
-         global h
-         global w
-         global snake
-         global q_snake
-         q_snake = queue.Queue(maxsize = 0)
-         global snake_direction
-         snake_direction = SnakeDirection.Direction.Left
-         """
-         SnakeTail => [x of tail,y of tail]
-         game_pad => Numpy.Array
-         
-         """
-#         """
-#         GamePad define:
-#             1 : wall
-#             2 : Food
-#             3 : Snake
-#         """
-         def __init__(self,Width,Height,GamePad,SnakeTail,SnakeLength,Direction):
-             global h
-             h = Height
-             
-             global w
-             w = Width
-             
-             global game_pad
-             game_pad = GamePad
+         def __init__(self,GamePad,SnakeTail,SnakeLength,Direction):
+             global snake
+             snake = Snake.Snake(SnakeTail,Direction)
+             global world
+             world = GamePad
+             for i in range(SnakeLength):
+                 world.World[SnakeTail[0],SnakeTail[1]].FileType = Map.MapEnum.Snake
+                 snake.HeadMove()
              
              
-             if Direction == SnakeDirection.Direction.Up:
-                 i = 0
-                 while (game_pad[SnakeTail[0]][SnakeTail[1]+i] == 3):
-                     
-             elif Direction == SnakeDirection.Direction.Down:
-                 pass
-             elif Direction == SnakeDirection.Direction.Right:
-                 pass
-             elif Direction == SnakeDirection.Direction.Left:
-                 pass
-             
-             
-             
-             
+             global IfNewTail
+             IfNewTail = False
          #New Body
          def NewTail():
-             pass
+             global IfNewTail
+             IfNewTail = True
             
          #Gameloop
          def Next():
-            pass
+            global snake
+            snake.HeadMove()
+            global IfNewTail
+            if IfNewTail :
+                pass
+            else :
+#                global snake
+                snake.TailMove()
+#                global IfNewTail
+                IfNewTail = False
+         #Snake Direction
+         def GoUp():
+             global snake
+             snake.direction = SnakeDirection.Direction.Up
+         def GoDown():
+             global snake
+             snake.direction = SnakeDirection.Direction.Down
+         def GoRight():
+             global snake
+             snake.direction = SnakeDirection.Direction.Right
+         def GoLeft():
+             global snake
+             snake.direction = SnakeDirection.Direction.Left
             
             
         #Game Info
-         def Head():
+         def HeadInfo():
             pass
          
-         
+         """
+         HeadInfo:
+             TODO:
+                 1.Get information for 8 direction about Snake's head
+                 2.direction between snake and fruit
+         """
          

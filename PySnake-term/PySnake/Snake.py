@@ -10,9 +10,9 @@ import queue
 
 class Snake(object):
     
-    def __init__(Tail,Direction):
+    def __init__(self,Tail,Direction):
         self.q_snake = queue.deque(maxsuze = 0)
-        q_snake.append([Tail[0],Tail[1]])
+        self.q_snake.append([Tail[0],Tail[1]])
         self.direction = Direction
     """
     q_snake:
@@ -21,7 +21,7 @@ class Snake(object):
     """
     @property
     def Head(self):
-        return self.q_snake[len(q_snake)-2]
+        return self.q_snake[len(self.q_snake)-2]
     
     @property
     def Tail(self):
@@ -32,18 +32,18 @@ class Snake(object):
     
     @property
     def Direction(self):
-        return self.Direction
+        return self.direction
     
     @Direction.setter
     def Direction(self, value):
         self.direction = value
         
-    def HeadMove():
-        head = [Head[0],Head[1]]
+    def HeadMove(self):
+        head = [self.Head()[0],self.Head()[1]]
         self.q_snake.append(head)
         
         
-    def TailMove():
+    def TailMove(self):
         self.q_snake.popleft()
         
         
