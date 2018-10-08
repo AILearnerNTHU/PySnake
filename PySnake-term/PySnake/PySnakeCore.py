@@ -48,16 +48,16 @@ class PySnakeCore:
          #Snake Direction
          def GoUp():
              global snake
-             snake.direction = SnakeDirection.Direction.Up
+             snake.Direction = SnakeDirection.Direction.Up
          def GoDown():
              global snake
-             snake.direction = SnakeDirection.Direction.Down
+             snake.Direction = SnakeDirection.Direction.Down
          def GoRight():
              global snake
-             snake.direction = SnakeDirection.Direction.Right
+             snake.Direction = SnakeDirection.Direction.Right
          def GoLeft():
              global snake
-             snake.direction = SnakeDirection.Direction.Left
+             snake.Direction = SnakeDirection.Direction.Left
             
             
         #Game Info
@@ -70,4 +70,10 @@ class PySnakeCore:
                  1.Get information for 8 direction about Snake's head
                  2.direction between snake and fruit
          """
+         def Head():
+             global snake
+             return snake.Head()
+         def Tail():
+             global snake
+             return snake.Tail()
          
