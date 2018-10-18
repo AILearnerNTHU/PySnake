@@ -6,25 +6,31 @@ Created on Sat Oct  6 18:39:20 2018
 """
 
 
-import queue
+#import queue
 from . import SnakeDirection
 class Queue(object):
-    def Front():
-        pass
+    def __init__(self):
+        self.q = []
+        self.q_len  =  0
     
-    def Last():
-        pass
-    def Push(value):
-        pass
+    def Front(self):
+        return self.q[0]
     
-    def Pop():
-        pass
+    def Last(self):
+        return self.q[len - 1]
+    def Push(self,value):
+        self.q.append[value]
+        self.q_len +=1
+        
+    def Pop(self):
+        del self.q[0]
+        self.q_len -= 1
     
 class Snake(object):
     
     def __init__(self,Tail,Direction):
-        self.q_snake = queue.deque()
-        self.q_snake.append([Tail[0],Tail[1]])
+        self.q_snake = Queue()
+        self.q_snake.Push([Tail[0],Tail[1]])
         self.direction = Direction
     """
     q_snake:
@@ -33,11 +39,11 @@ class Snake(object):
     """
     @property
     def Head(self):
-        return self.q_snake[len(self.q_snake)-2]
+        return self.q_snake.Last()
     
     @property
     def Tail(self):
-        return self.q_snake[-1]
+        return self.q_snake.Front()
     """
         need to be test
     """
@@ -66,10 +72,10 @@ class Snake(object):
         
     
     def HeadMove(self):
-        self.q_snake.append(self.NextHead())
+        self.q_snake.Push(self.NextHead())
         
     def TailMove(self):
-        self.q_snake.popleft()
+        self.q_snake.Pop()
         
         
         
