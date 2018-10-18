@@ -5,6 +5,7 @@ Created on Mon Oct  8 16:29:30 2018
 @author: Computer-User
 """
 from . import SnakeDirection , Map , Snake
+
 class GamePad:
        def __init__(self,GameWorld,Height,Width,SnakeTail,SnakeLength,Direction):
            #global h 
@@ -12,7 +13,7 @@ class GamePad:
            #global w
            self.w = Width           
            global snake
-           snake = Snake(SnakeTail,Direction)
+           snake = Snake.Snake(SnakeTail,Direction)
            global world
            world = GameWorld
            for i in range(SnakeLength):
@@ -55,7 +56,7 @@ class GamePad:
           if IfNewTail :
               pass
           else :
-              global snake
+#              global snake
               snake.TailMove()
 #                global IfNewTail
               IfNewTail = False
@@ -83,10 +84,10 @@ class GamePad:
                1.Get information for 8 direction about Snake's head
                2.direction between snake and fruit
        """
-       def Head():
+       def Head(self):
            global snake
-           return snake.Head()
-       def Tail():
+           return snake.Head
+       def Tail(self):
            global snake
-           return snake.Tail()
+           return snake.Tail
          

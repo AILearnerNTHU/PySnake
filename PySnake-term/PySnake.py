@@ -31,7 +31,7 @@ class PySnakeGUI:
         for j in range(0,int(w)):
             if i == 0 or j == 0 or i ==h-1 or j ==w-1:
                 m.World[i][j].FileType = Map.MapEnum.Wall
-    gp = GamePad(m,h,w,[int(h/2),int((w*2)/3)],3,SnakeDirection.Direction.Left)
+    gp = GamePad.GamePad(m,h,w,[int(h/2),int((w*2)/3)],3,SnakeDirection.Direction.Left)
     global gamescreen
     gamescreen = gs.GameScreen(gp)
     
@@ -72,10 +72,8 @@ class PySnakeGUI:
     
 
     while Gameloop:
-        with keyboard.Listener(
-            on_press = on_press,
-            on_release = on_release) as listener:
-            listener.join()
+        with keyboard.Listener(on_press = on_press,on_release = on_release) as listener:
+    listener.join()
    
     
     

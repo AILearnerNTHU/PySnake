@@ -7,8 +7,19 @@ Created on Sat Oct  6 18:39:20 2018
 
 
 import queue
-#import SnakeDirection
 from . import SnakeDirection
+class Queue(object):
+    def Front():
+        pass
+    
+    def Last():
+        pass
+    def Push(value):
+        pass
+    
+    def Pop():
+        pass
+    
 class Snake(object):
     
     def __init__(self,Tail,Direction):

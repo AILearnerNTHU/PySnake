@@ -4,14 +4,11 @@ Created on Sat Oct  6 10:14:43 2018
 
 @author: Computer-User
 """
-from PySnakeGame import Map , PySnakeCore , Snake , SnakeDirection
+from PySnakeGame import Map , GamePad , Snake , SnakeDirection
 import sys
 
 class GameScreen:
-    global last_x
-    last_x = 0
-    global last_y
-    last_y = 0
+    
     global color
     color = {Map.MapEnum.Wall : "\u001b[44;1m",Map.MapEnum.Ground : "\u001b[47m" , Map.MapEnum.Snake : "\u001b[40m", Map.MapEnum.Fruit :"\u001b[41;1m"}
     """
@@ -20,17 +17,21 @@ class GameScreen:
     global symbol
     symbol = {Map.MapEnum.Wall : "+",Map.MapEnum.Ground : " " , Map.MapEnum.Snake : "#", Map.MapEnum.Fruit :"*"}
     def DrawPixel(self,x,y,Type):
-        #curse move back to origin
-        sys.stdout.write("\u001b[1000A\u001b[1000C")
+        #curse move
+        if x >= self.last_x :
+            sys.stdout.write("\u001b[" + str(x) + "B" + "\u001b[" + str(y) + "C")
         #print
         sys.stdout.write("\u001b[" + str(x) + "B" + "\u001b[" + str(y) + "C" + color[Type] + symbol[Type].ljust(1))
-    
+    """
+    TODO:move curse
+    """
         
     
-    def __init__(self,GamePad):
+    def __init__(self,Gamepad):
+        sys.stdout.flush()
         global gamepad
-        gamepad = PySnakeCore.PySnakeCore.GamePad
-        gamepad = GamePad
+      #  gamepad = GamePad
+        gamepad = Gamepad
         for i in range(gamepad.Height):
             for j in range(gamepad.Width):
                 w = gamepad.Map.World[i][j].FileType
@@ -38,6 +39,9 @@ class GameScreen:
         global LastTail
 #        global gamepad
         LastTail = gamepad.Tail()
+        
+        self.last_x = 0
+        self.last_y = 0
         
     def NextScreen(self):
         global gamepad
